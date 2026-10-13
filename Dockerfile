@@ -1,15 +1,17 @@
-#Imagen base con Python 3.11.9
+# Imagen base 
 FROM python:3.11.9
 
-#Carpeta de trabajo dentro del contenedor para la aplicación zoo
+# Carpeta de trabajo dentro del contenedor
 WORKDIR /app
 
-#Copia archivos desde al proyecto hacia la imagen que estoy construyendo
+# archivo de dependencias
+COPY requirements.txt .
 
+# Instalar las dependencias de forma aislada
+RUN pip install --no-cache-dir -r requirements.txt
+
+#  Copiar el resto del código del proyecto 
 COPY . .
 
-#Instalar las dependencias
-RUN pip install -r requeriments.txt
-
-
+# Comando para ejecutar la aplicación
 CMD ["python", "app.py"]

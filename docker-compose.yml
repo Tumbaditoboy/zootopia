@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: zoologico_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: zoologico_db
+      MYSQL_USER: zoo_user
+      MYSQL_PASSWORD: zoo_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d
+
+  web:
+    build: .
+    container_name: zoologico_flask
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=zoo_user
+      - MYSQL_PASSWORD=zoo_password
+      - MYSQL_DB=zoologico_db
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

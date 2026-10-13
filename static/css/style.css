@@ -1,0 +1,117 @@
+  :root {
+  --bg-color: #fcfcfc;
+  --card-bg: #ffffff;
+  --text-main: #2d3142;
+  --text-muted: #9a9baf;
+  --pastel-accent: #b5c7d3; 
+  --pastel-secondary: #e8d7f1; 
+  --pastel-highlight: #d4edda; 
+  --border-color: #eaeef2;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+
+h1, h2, h3, .navbar-brand {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+}
+
+
+.card-header {
+  background-color: #c4d7ed !important;
+  color: #2d3748 !important;
+  border-bottom: 1px solid #b0c8e4;
+}
+
+
+.card-header h5 {
+  color: #2d3748 !important;
+  font-weight: 600;
+}
+
+.table {
+  color: var(--text-main);
+  background-color: var(--card-bg);
+}
+
+.table th {
+  border-top: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  background-color: #fafbfc;
+}
+
+
+.btn-primary {
+  background-color: #c4d7ed;
+  border-color: #c4d7ed;
+  color: #2d3748;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #b0c8e4;
+  border-color: #b0c8e4;
+  color: #1a202c;
+}
+
+
+.form-control {
+  background-color: #fafbfc;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
+}
+
+.form-control:focus {
+  background-color: #ffffff;
+  border-color: #c4d7ed;
+  box-shadow: 0 0 0 3px rgba(196, 215, 237, 0.15);
+}
+
+
+
+.welcome-card {
+  
+  background-image:  url('../images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--border-color);
+  padding-top: 18rem !important;
+  padding-bottom: 18rem !important;
+}
+
+
+.welcome-card h1 {
+  color: #ffffff !important;                
+  font-size: 3rem !important;               
+  font-weight: 600 !important;
+  text-shadow: 0 2px 8px rgba(12, 1, 1, 0.918); 
+}
+
+
+.welcome-card p {
+  color: #f1f5f9 !important;                
+  font-size: 1.25rem !important;            
+  text-shadow: 0 1px 4px rgb(0, 0, 0); 
+}
