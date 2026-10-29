@@ -2,12 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from database import db, init_db
 
 app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta_para_flash'
+app.secret_key = 'clave_flash'
 
 # Inicializamos la base de datos separada
 init_db(app)
 
-# Modelo de la base de datos mapeado a la tabla 'animales'
+# Modelo de la base de datos mapeado a la tabla 
 class AnimalModel(db.Model):
     __tablename__ = 'animales'
     id = db.Column(db.Integer, primary_key=True)

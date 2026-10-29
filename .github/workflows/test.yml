@@ -1,0 +1,52 @@
+name: Pruebas Zootopia Project
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+  
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: zoologico_db
+          MYSQL_USER: zoo_user
+          MYSQL_PASSWORD: zoo_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar Pruebas
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: zoo_user
+          MYSQL_PASSWORD: zoo_password
+          MYSQL_DB: zoologico_db
+          MYSQL_PORT: 3306
+        run: |
+          python -m pytest

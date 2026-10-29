@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 def init_db(app):
-    """Configura y vincula la base de datos con la aplicación Flask"""
+    """Configura y vincula la base de datos con la aplicación"""
     db_user = os.getenv('MYSQL_USER', 'zoo_user')
     db_password = os.getenv('MYSQL_PASSWORD', 'zoo_password')
     db_host = os.getenv('MYSQL_HOST', 'localhost')
