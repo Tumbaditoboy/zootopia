@@ -16,6 +16,7 @@ def client():
             yield client
             # Limpia y borra las tablas al terminar para mantener el entorno aislado
             db.session.remove()
+            
             db.drop_all()
 
 def test_index_route(client):

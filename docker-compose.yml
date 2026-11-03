@@ -26,9 +26,11 @@ services:
       - .:/app
     environment:
       - MYSQL_HOST=db
+      - MYSQL_PORT=3306
       - MYSQL_USER=zoo_user
       - MYSQL_PASSWORD=zoo_password
       - MYSQL_DB=zoologico_db
+      - MYSQL_SSL_CA=
     depends_on:
       - db
 

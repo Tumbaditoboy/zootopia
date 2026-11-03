@@ -1,4 +1,26 @@
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+
+# Entornos virtuales
 venv/
+.venv/
+
+# Variables y secretos
 .env
+.env.*
+!.env.example
+
+# Certificados locales
+certs/
+
+# Archivos de pruebas locales
+test_connection.py
+
+# Bases de datos locales
 *.db
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
